@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, FlatList, ScrollView } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, FlatList } from 'react-native';
 
 import api from '../services/api';
 
-function Listagem({ navigation }) {
+function Listagem() {
     const [hoteis, setHoteis] = useState([]);
 
     async function carregaHoteis() {
-
         const responseHoteis = await api.get('/hotel');
-
         setHoteis(responseHoteis.data);
     }
 
     return (
         <View style={styles.container}>
-
             {hoteis.length > 0 || hoteis != null ?
                 <FlatList
                     keyExtractor={(item) => item._id}
@@ -37,7 +34,6 @@ function Listagem({ navigation }) {
                     Nenhum Hotel encontrado!
                 </Text>
             }
-
             <View style={styles.bottom}>
                 <TouchableOpacity
                     onPress={carregaHoteis}
@@ -56,13 +52,11 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center'
     },
-
     bottom: {
         flex: 1,
         justifyContent: 'flex-end',
         marginBottom: 36
     },
-
     submitButton: {
         backgroundColor: '#7a42f4',
         alignItems: 'center',
@@ -86,7 +80,6 @@ const styles = StyleSheet.create({
         padding: 30,
         fontSize: 16
     },
-
     listItem: {
         fontSize: 20,
         fontWeight: 'bold',

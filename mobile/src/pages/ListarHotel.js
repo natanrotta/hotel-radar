@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, FlatList, ScrollView } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 import api from '../services/api';
 
@@ -8,7 +8,6 @@ function ListarHotel({ navigation }) {
     const nomeHotel = navigation.getParam('nomeHotel');
 
     async function carregaHotel() {
-
         const responseHotel = await api.get(`/buscaHotel?nome=${nomeHotel}`);
 
         if (responseHotel.data.nome != null) {
@@ -44,13 +43,11 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center'
     },
-
     bottom: {
         flex: 1,
         justifyContent: 'flex-end',
         marginBottom: 36
     },
-
     submitButton: {
         backgroundColor: '#7a42f4',
         alignItems: 'center',

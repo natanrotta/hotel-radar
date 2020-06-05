@@ -16,16 +16,12 @@ function Atualizar({ navigation }) {
     }
 
     async function carregaHotel() {
-
         const responseHotel = await api.get(`/buscaHotel?nome=${nomeHotel}`);
-
         setHotel(responseHotel.data)
     }
 
     async function atualizarHotel() {
-
         const responseHotel = await api.put(`/hotel?nomeAntigo=${hotel.nome}&nome=${hotelAtualizado.nome}&informacao=${hotelAtualizado.informacao}`);
-
         navigation.navigate('Resposta')
     }
 
@@ -39,19 +35,31 @@ function Atualizar({ navigation }) {
                     onChangeText={(value) => setNomeHotel(value)}
                 />
             </>
-            <View style={{ borderBottomColor: '#999', padding: 10, width: 500, marginLeft: 140, marginTop: 20 }}>
-
+            <View
+                style={{
+                    borderBottomColor: '#999',
+                    padding: 10,
+                    width: 500,
+                    marginLeft: 140,
+                    marginTop: 20
+                }}>
                 {
                     hotel != null
                         ?
                         <>
                             <Text
-                                style={{ fontSize: 20, fontWeight: 'bold' }}
+                                style={{
+                                    fontSize: 20,
+                                    fontWeight: 'bold'
+                                }}
                             >
                                 Nome: {hotel.nome}
                             </Text>
                             <Text
-                                style={{ fontSize: 20, fontWeight: 'bold' }}
+                                style={{
+                                    fontSize: 20,
+                                    fontWeight: 'bold'
+                                }}
                             >
                                 Informação: {hotel.informacao}
                             </Text>
@@ -68,22 +76,27 @@ function Atualizar({ navigation }) {
                                 style={styles.Bottondeletar}
                                 onPress={atualizarHotel}
                             >
-                                <MaterialIcons name="cached" size={20} color='#FFF' />
+                                <MaterialIcons
+                                    name="cached"
+                                    size={20}
+                                    color='#FFF' />
                             </TouchableOpacity>
                         </>
                         :
                         <>
                         </>
                 }
-
             </View>
-
-            <View style={styles.bottom}>
+            <View
+                style={styles.bottom}>
                 <TouchableOpacity
                     style={styles.submitButton}
                     onPress={carregaHotel}
                 >
-                    <Text style={styles.submitButtonText}> Carregar </Text>
+                    <Text
+                        style={styles.submitButtonText}>
+                        Carregar
+                    </Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -97,7 +110,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center'
     },
-
     bottom: {
         flex: 1,
         justifyContent: 'flex-end',
@@ -127,7 +139,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         justifyContent: "center",
         alignItems: "stretch"
-
     },
     Bottondeletar: {
         marginTop: 20,

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 import api from '../services/api';
 
 function Inserir({ navigation }) {
-
     const [nomeHotel, setNomeHotel] = useState(null);
     const [infoHotel, setInfoHotel] = useState(null);
 
@@ -14,14 +13,11 @@ function Inserir({ navigation }) {
     }
 
     async function salvarDados() {
-
         const responseApi =
             await api.post('/hotel',
                 { "nome": hotel.nome, "informacao": hotel.informacao });
-
         setInfoHotel('')
         setNomeHotel('')
-
         navigation.navigate('Resposta')
     }
 

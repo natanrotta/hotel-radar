@@ -29,17 +29,14 @@ function Main({ navigation }) {
                 })
             }
         }
-
         loadInitialPosition();
     }, []);
-
 
     //Cada vez que o usuário mover o mapa, ele atualiza minha região;
     //O onRegionChage sempre manda uma region, sendo assim basta receber ela no método;
     function handleRegionChanged(region) {
         setCurrentRegion(region)
     }
-
 
     if (!currentRegion) {
         return null
@@ -66,8 +63,6 @@ function Main({ navigation }) {
                 }} style={styles.loadButton}>
                     <MaterialIcons name="search" size={20} color='#FFF' />
                 </TouchableOpacity>
-
-
             </View>
 
             <TouchableOpacity onPress={() => {
@@ -101,7 +96,6 @@ const styles = StyleSheet.create({
     map: {
         flex: 1,
     },
-
     searchForm: {
         position: 'absolute',
         top: 20,
@@ -110,7 +104,6 @@ const styles = StyleSheet.create({
         zIndex: 5,
         flexDirection: 'row'
     },
-
     searchInput: {
         flex: 1,
         height: 50,
@@ -127,7 +120,6 @@ const styles = StyleSheet.create({
         },
         elevation: 4,
     },
-
     loadButton: {
         width: 50,
         height: 50,
@@ -137,7 +129,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginLeft: 15
     },
-
     adicionarHotel: {
         position: 'absolute',
         width: 50,
@@ -149,7 +140,6 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         marginTop: 160
     },
-
     buscarHoteis: {
         position: 'absolute',
         width: 50,
@@ -161,7 +151,6 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         marginTop: 100
     },
-
     deletarHotel: {
         position: 'absolute',
         width: 50,
@@ -173,7 +162,6 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         marginTop: 220
     },
-
     atualizarHotel: {
         position: 'absolute',
         width: 50,
@@ -185,9 +173,6 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         marginTop: 280
     },
-
-
-
 })
 
 export default Main;

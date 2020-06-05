@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-function Resposta({ navigation }) {
+function Resposta() {
 
     return (
         <View style={styles.container}>
