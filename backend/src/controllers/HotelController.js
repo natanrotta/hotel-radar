@@ -1,6 +1,6 @@
 const Hotel = require('../models/Hotel')
 
-// Realiza a inserção do hotel
+//Cria as querys
 module.exports = {
     async buscarHoteis(request, response) {
         const hoteis = await Hotel.find();
@@ -14,7 +14,6 @@ module.exports = {
 
         return response.json(hotel);
     },
-
 
     async adicionarHotel(request, response) {
         const { nome, informacao } = request.body;
